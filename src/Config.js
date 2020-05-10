@@ -1,5 +1,5 @@
 const Config = {
-	title: 'Dance Diary'
+	title: '|Dance Diary|'
 }
 
 export default Config;
