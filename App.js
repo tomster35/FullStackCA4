@@ -1,18 +1,23 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 
-import React, {Component} from 'react';
-import TabScreen from './src/screens/TabScreen';
-
-export default class App extends Component {
-  render() {
-    return (
-      <TabScreen/>
-    );
-  }
+export default class App extends React.Component {
+  render(){
+  return (
+    <View style={styles.container}>
+    <Text>Open up App.js , skiddbop  to the top start working on your application</Text>
+    </View>
+  
+    
+  );
 }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
