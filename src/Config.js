@@ -1,5 +1,5 @@
 const Config = {
-	title: 'TODO APP'
+	title: 'Dance Diary'
 }
 
 export default Config;
