@@ -4,6 +4,14 @@ import Config from './src/Config';
 import Header from './src/components/Header';
 import Footer from './src/components/Footer';
 import RefreshControl from './src/components/RefreshControl';
+import Expo from 'expo';
+
+const NavigationApp = StackNavigator({
+Home: { screen : HomeScreen},
+Profile: { screen : ProfileScreen},
+
+
+})
 
 
 /**
@@ -172,22 +180,24 @@ export default class App extends React.Component {
     render() {
 
         return (
+
           
             <View style={styles.container}>
-
+             
                 <Header title={Config.title} />
                
                 <ScrollView style={styles.scrollView}>
                 <RefreshControl style={styles.container}/>
-                    {this.renderNotes()}
+                {this.renderNotes()}
+                 </ScrollView>  
                
-                </ScrollView>
-           
                 <Footer
                     onChangeText={ (note) => this.setState({note})  }
                     inputValue={this.state.note}
                     onNoteAdd={ () => this.addNote() }
                 />
+         
+               
 
             </View>
         );
