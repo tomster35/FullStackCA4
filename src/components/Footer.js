@@ -1,13 +1,6 @@
 import React from 'react';
-import { 
-    StyleSheet, 
-    Text, 
-    View,
-    TextInput,
-    KeyboardAvoidingView,
-    TouchableOpacity
-} from 'react-native';
-
+import {  StyleSheet, Text,   View,  TextInput,KeyboardAvoidingView,TouchableOpacity} from 'react-native';
+   
 export default class Footer extends React.Component {
 
     render() {
@@ -30,7 +23,7 @@ export default class Footer extends React.Component {
 
                     <TextInput 
                         style={styles.textInput}
-                        placeholder={'New note'}
+                        placeholder={'What did you learn today?'}
                         placeholderTextColor={'rgba(255, 255, 255, .7)'}
                         onChangeText={ (val) => this.props.onChangeText(val) }
                         value={this.props.inputValue}
@@ -60,16 +53,16 @@ const styles = StyleSheet.create({
     btn: {
         zIndex: 1,
         position: 'absolute',
-        right: 20,
-        top: -50,
+        right: 0,
+        top: -60,
         width: 100,
         height: 100,
         borderRadius: 10,
         alignItems: 'center',
         justifyContent: 'center',
-        borderWidth: 2,
-        borderColor: '#fff',
-        backgroundColor: '#fa3664'
+        borderWidth: 6,
+        borderColor: 'grey',
+        backgroundColor: 'black'
     },
     btnText: {
         color: '#fff',
