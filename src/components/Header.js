@@ -7,7 +7,7 @@ export default class Header extends React.Component {
 
         return (
             <View style={styles.header}>
-                <Text style={styles.text}>{this.props.title}</Text>
+            <Text style={styles.text}>{this.props.title}</Text>
             </View>
         );
 
@@ -18,17 +18,17 @@ export default class Header extends React.Component {
 const styles = StyleSheet.create({
     header: {
         width: '100%',
-        height: '18%',
-        borderBottomWidth: 8,
-        borderBottomColor: "#ddd",
+        height: '16.2%',
+        borderBottomWidth: 12,
+        borderBottomColor: "grey",
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#fa3664'
+        backgroundColor: 'black'
     },
     text: {
-        fontSize: 18,
+        fontSize: 36,
         letterSpacing: 1.1,
         fontWeight: 'bold',
-        color: '#fff'
+        color: 'orange'
     }
 });
