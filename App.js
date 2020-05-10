@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
     scrollView: {
         maxHeight: '82%',
         marginBottom: 100,
-        backgroundColor: 'orange'
+        backgroundColor: 'green'
     },
     note: {
         margin: 10,
