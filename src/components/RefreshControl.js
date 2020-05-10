@@ -31,7 +31,7 @@ export default function App() {
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }
       >
-        <Text>Pull down to see RefreshControl indicator</Text>
+        <Text>Pull down to Refresh</Text>
       </ScrollView>
     </SafeAreaView>
   );
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     flex: 1,
-    backgroundColor: 'pink',
+    backgroundColor: 'orange',
     alignItems: 'center',
     justifyContent: 'center',
   },
