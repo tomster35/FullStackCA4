@@ -1,8 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View,ScrollView,TouchableOpacity, AsyncStorage} from 'react-native';
+import { StyleSheet, Text, View,ScrollView,TouchableOpacity, AsyncStorage, RefreshControlComponent} from 'react-native';
 import Config from './src/Config';
 import Header from './src/components/Header';
 import Footer from './src/components/Footer';
+import RefreshControl from './src/components/RefreshControl';
+
 
 /**
  * App
@@ -12,19 +14,22 @@ import Footer from './src/components/Footer';
  */
 export default class App extends React.Component {
 
+   
     /**
      * constructor
      *
      * @array   notes   all added notes.
      * @string  note    the current note value.
      */
+   
+
     constructor(props) {
         super(props);
         this.state = {
             notes: [],
             note: ''
         }
-
+      
     }
 
     /**
@@ -167,14 +172,17 @@ export default class App extends React.Component {
     render() {
 
         return (
+          
             <View style={styles.container}>
 
                 <Header title={Config.title} />
-
+               
                 <ScrollView style={styles.scrollView}>
+                <RefreshControl style={styles.container}/>
                     {this.renderNotes()}
+               
                 </ScrollView>
-
+           
                 <Footer
                     onChangeText={ (note) => this.setState({note})  }
                     inputValue={this.state.note}
