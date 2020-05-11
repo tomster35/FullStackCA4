@@ -1,221 +1,36 @@
-import React from 'react';
-import { StyleSheet, Text, View,ScrollView,TouchableOpacity, AsyncStorage, RefreshControlComponent} from 'react-native';
-import Config from './src/Config';
-import Header from './src/components/Header';
-import Footer from './src/components/Footer';
-import RefreshControl from './src/components/RefreshControl';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import * as React from 'react';
+import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 
+import useCachedResources from './hooks/useCachedResources';
+import BottomTabNavigator from './navigation/BottomTabNavigator';
+import LinkingConfiguration from './navigation/LinkingConfiguration';
 
+const Stack = createStackNavigator();
 
-export default class App extends React.Component {
+export default function App(props) {
+  const isLoadingComplete = useCachedResources();
 
-   
-    /**
-     * constructor
-     *
-     * @array   notes   all added notes.
-     * @string  note    the current note value.
-     */
-   
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            notes: [],
-            note: ''
-        }
-      
-    }
-
-    /**
-     * componentDidMount
-     *
-     * Load notes from asyncstorage if exists
-     */
-    async componentDidMount() {
-
-        const notes = await AsyncStorage.getItem('notes');
-        if (notes && notes.length > 0) {
-            this.setState({
-                notes: JSON.parse(notes)
-            })
-        }
-
-    }
-
-    /**
-     * updateAsyncStorage
-     *
-     * @array   notes   notes array to save in asyncstorage
-     *
-     * @return  promise
-     */
-    updateAsyncStorage(notes) {
-
-        return new Promise( async(resolve, reject) => {
-
-            try {
-
-                await AsyncStorage.removeItem('notes');
-                await AsyncStorage.setItem('notes', JSON.stringify(notes));
-                return resolve(true);
-
-            } catch(e) {
-                return reject(e);
-            }
-
-        });
-
-    }
-
-    /**
-     * cloneNotes
-     *
-     * Creates a shallow copy of the state notes array
-     *
-     * @return   @array  cloned notes array
-     */
-    cloneNotes() {
-        return [...this.state.notes];
-    }
-
-    /**
-     * addNote
-     *
-     * Adds new note.
-     *
-     * @return  undefined
-     */
-    async addNote() {
-
-        if (this.state.note.length <= 0)
-            return;
-
-        try {
-
-            const notes = this.cloneNotes();
-            notes.push(this.state.note);
-
-            await this.updateAsyncStorage(notes);
-
-            this.setState({
-                notes: notes,
-                note: ''
-            });
-
-        }
-
-        catch(e) {
-
-            // notes could not be updated
-            alert(e);
-
-        }
-
-    }
-
-    /**
-     * removeNote
-     *
-     * Removes note based on array index.
-     *
-     * @return  undefined
-     */
-    async removeNote(i) {
-
-        try {
-
-            const notes = this.cloneNotes();
-            notes.splice(i, 1);
-
-            await this.updateAsyncStorage(notes);
-            this.setState({ notes: notes });
-
-        }
-
-        catch(e) {
-
-            // Note could not be deleted
-            alert(e);
-
-        }
-
-    }
-
-    /**
-     * renderNotes
-     *
-     * Renders all notes in note array in a map.
-     *
-     * @return  Mapped notes array
-     */
-    renderNotes() {
-
-        return this.state.notes.map((note, i) => {
-            return (
-                <TouchableOpacity 
-                    key={i} style={styles.note} 
-                    onPress={ () => this.removeNote(i) }
-                >
-                    <Text style={styles.noteText}>{note}</Text>
-                </TouchableOpacity>
-            );
-        });
-
-    }
-
-    render() {
-
-        return (
-
-            
-            <View style={styles.container}>
-           
-                <Header title={Config.title} />
-
-                <ScrollView style={styles.scrollView}>
-                <RefreshControl style={styles.container}/>
-             
-                {this.renderNotes()}
-                 </ScrollView>  
-               
-                <Footer
-                    onChangeText={ (note) => this.setState({note})  }
-                    inputValue={this.state.note}
-                    onNoteAdd={ () => this.addNote() }
-                />
-         
-               
-
-            </View>
-        );
-
-    }
-
+  if (!isLoadingComplete) {
+    return null;
+  } else {
+    return (
+      <View style={styles.container}>
+        {Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}
+        <NavigationContainer linking={LinkingConfiguration}>
+          <Stack.Navigator>
+            <Stack.Screen name="Root" component={BottomTabNavigator} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        position: 'relative'
-    },
-    scrollView: {
-        maxHeight: '82%',
-        marginBottom: 100,
-        backgroundColor: 'orange'
-    },
-    note: {
-        margin: 10,
-        padding: 10,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderWidth: 2,
-        backgroundColor: 'grey',
-        borderColor: 'black',
-        borderRadius: 70,
-    },
-    noteText: {
-        fontSize: 14,
-        padding: 20,
-    }
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
 });
