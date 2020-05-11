@@ -15,7 +15,8 @@ export default function App(props) {
     return null;
   } else {
     return (
-      <View style={styles.container}>
+ <View style={styles.container}>
+   
         {Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}
         <NavigationContainer linking={LinkingConfiguration}>
           <Stack.Navigator>
