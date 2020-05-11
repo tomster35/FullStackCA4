@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'black'
     },
     btnText: {
-        color: 'orange',
+        color: '#f2f0f5',
         fontSize: 40,
     },
     textInput: {

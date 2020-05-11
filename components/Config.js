@@ -1,5 +1,5 @@
 const Config = {
-	title: '|Dance Diary|'
+	title: 'Note your activities'
 }
 
 export default Config;
