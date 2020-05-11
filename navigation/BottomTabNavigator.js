@@ -3,6 +3,7 @@ import * as React from 'react';
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
+import Information from '../screens/Information';
 
 
 
@@ -39,7 +40,7 @@ export default function BottomTabNavigator({ navigation, route}) {
       />
        <BottomTab.Screen
            name="Info"
-        component={LinksScreen}
+        component={Information}
         options={{
           title: 'Informartion',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-cow" />,

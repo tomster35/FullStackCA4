@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 
-import { StyleSheet, Text, View,ScrollView,TouchableOpacity, AsyncStorage, RefreshControlComponent} from 'react-native';
+import { StyleSheet, Text, View,ScrollView,TouchableOpacity, AsyncStorage, } from 'react-native';
 import Config from '../components/Config';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
