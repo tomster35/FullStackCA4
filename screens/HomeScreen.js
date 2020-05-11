@@ -1,13 +1,13 @@
 
 import * as React from 'react';
 import { Image, Platform, StyleSheet,  View } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+
 
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+   
         <View style={styles.welcomeContainer}>
           <Image
             source={
@@ -20,7 +20,7 @@ export default function HomeScreen() {
 
         </View>
 
-      </ScrollView>
+    
       </View>
 
      );
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   },
   welcomeImage: {
     width:1000,
-    height: 670,
+    height: 740,
     resizeMode: 'contain',
     marginTop: -100,
     marginLeft: -10,

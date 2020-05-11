@@ -7,6 +7,7 @@ import * as Permissions from 'expo-permissions';
 export default class Picker extends React.Component {
   state = {
     image: null,
+   
   };
 
   render() {
@@ -14,11 +15,16 @@ export default class Picker extends React.Component {
 
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Button title="Pick an image from camera roll" onPress={this._pickImage} />
-        {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
+        <Button title="Pick an image to Display from camera roll" onPress={this._pickImage} />
+        {image && <Image source={{ uri: image }} style={{ width: 350, height: 350 }} />}
+  
+      
       </View>
-    );
-  }
+    
+      );
+  } 
+       
+   
 
   componentDidMount() {
     this.getPermissionAsync();
@@ -45,9 +51,15 @@ export default class Picker extends React.Component {
         this.setState({ image: result.uri });
       }
 
+      
       console.log(result);
     } catch (E) {
       console.log(E);
     }
+
+ 
+    
   };
+
+
 }
