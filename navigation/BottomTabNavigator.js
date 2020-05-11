@@ -55,6 +55,14 @@ export default function BottomTabNavigator({ navigation, route}) {
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-image" />,
         }}
       />
+       <BottomTab.Screen
+           name="Calendar"
+        component={Picture}
+        options={{
+          title: 'Calendar',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-calendar" />,
+        }}
+      />
       </BottomTab.Navigator>
     
   );
@@ -73,6 +81,8 @@ export default function BottomTabNavigator({ navigation, route}) {
         return 'Information Links';
         case 'Image':
         return 'Images';
+        case 'Calendar':
+        return 'Calendar';
      
   }
 }
