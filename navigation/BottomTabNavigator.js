@@ -44,7 +44,7 @@ export default function BottomTabNavigator({ navigation, route}) {
         component={Information}
         options={{
           title: 'Informartion',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-eye" />,
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-eye"  />,
         }}
       /> 
         <BottomTab.Screen
