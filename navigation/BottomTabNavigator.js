@@ -5,6 +5,7 @@ import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import Information from '../screens/Information';
 import Picture from '../screens/Picture';
+import Timeline from '../screens/Timeline';
 
 
 
@@ -56,6 +57,14 @@ export default function BottomTabNavigator({ navigation, route}) {
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-eye"  />,
         }}
       /> 
+        <BottomTab.Screen
+           name="Timeline"
+        component={Timeline}
+        options={{
+          title: 'Timeline',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-calendar"  />,
+        }}
+      /> 
       </BottomTab.Navigator>
     
   );
@@ -74,6 +83,8 @@ export default function BottomTabNavigator({ navigation, route}) {
         return 'Information Links';
         case 'Image':
         return 'Images';
+        case 'Timeline':
+        return 'Calendar';
    
      
   }
