@@ -4,6 +4,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import Information from '../screens/Information';
+import Picture from '../screens/Picture';
 
 
 
@@ -45,6 +46,14 @@ export default function BottomTabNavigator({ navigation, route}) {
           title: 'Informartion',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-eye" />,
         }}
+      /> 
+        <BottomTab.Screen
+           name="Image"
+        component={Picture}
+        options={{
+          title: 'Image',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-image" />,
+        }}
       />
       </BottomTab.Navigator>
     
@@ -62,6 +71,8 @@ export default function BottomTabNavigator({ navigation, route}) {
       return 'Diary App';
       case 'Info':
         return 'Information Links';
+        case 'Image':
+        return 'Images';
      
   }
 }

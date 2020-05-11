@@ -9,6 +9,7 @@ export default {
         Home: 'home',
         Links: 'links',
         Info: 'Information',
+        Image: 'Image',
       },
     },
   },
