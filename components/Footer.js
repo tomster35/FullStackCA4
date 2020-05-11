@@ -42,13 +42,13 @@ const styles = StyleSheet.create({
     footer: {
         position: 'absolute',
         width: '100%',
-        height: 100,
-        bottom: 0,
+        height: 155,
+        bottom: -30,
     },
     footerInner: {
         position: 'relative',
         width: '100%',
-        height: '100%',
+        height: '90%',
     },
     btn: {
         zIndex: 1,
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'black'
     },
     btnText: {
-        color: '#fff',
+        color: 'orange',
         fontSize: 40,
     },
     textInput: {
