@@ -4,22 +4,9 @@ import Config from './src/Config';
 import Header from './src/components/Header';
 import Footer from './src/components/Footer';
 import RefreshControl from './src/components/RefreshControl';
-import Expo from 'expo';
-
-const NavigationApp = StackNavigator({
-Home: { screen : HomeScreen},
-Profile: { screen : ProfileScreen},
 
 
-})
 
-
-/**
- * App
- *
- * Root component for the application.
- * Handles logic for adding and removing notes.
- */
 export default class App extends React.Component {
 
    
@@ -181,13 +168,14 @@ export default class App extends React.Component {
 
         return (
 
-          
+            
             <View style={styles.container}>
-             
+           
                 <Header title={Config.title} />
-               
+
                 <ScrollView style={styles.scrollView}>
                 <RefreshControl style={styles.container}/>
+             
                 {this.renderNotes()}
                  </ScrollView>  
                
