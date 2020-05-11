@@ -7,7 +7,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import RefreshControl from '../components/RefreshControl';
 
-export default class LinksScreen extends React.Component {
+export default class Diary extends React.Component {
   
     /**
      * constructor

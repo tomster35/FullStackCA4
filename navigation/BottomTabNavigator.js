@@ -2,7 +2,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import * as React from 'react';
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
+import Diary from '../screens/Diary';
 import Information from '../screens/Information';
 import Picture from '../screens/Picture';
 import Timeline from '../screens/Timeline';
@@ -33,8 +33,8 @@ export default function BottomTabNavigator({ navigation, route}) {
       
       />
        <BottomTab.Screen
-           name="Links"
-        component={LinksScreen}
+           name="Diary"
+        component={Diary}
         options={{
           title: 'Diary',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-book" />,
@@ -77,13 +77,13 @@ export default function BottomTabNavigator({ navigation, route}) {
   switch (routeName) {
     case 'Home':
       return 'Welcome to my App';
-    case 'Links':
+    case 'Diary':
       return 'Diary';
       case 'Info':
-        return 'Information Links';
+        return 'Ways to Stay Active ';
         case 'Image':
         return 'Images';
-        case 'Timeline':
+        case 'Activities':
         return 'Time';
    
      

@@ -7,7 +7,7 @@ export default {
       path: 'root',
       screens: {
         Home: 'home',
-        Links: 'links',
+        Diary: 'diary',
         Info: 'Information',
         Image: 'Image',
         Timeline: 'timeline',

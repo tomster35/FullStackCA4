@@ -8,77 +8,50 @@ export default function LinksScreen() {
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
       <OptionButton
-        icon="md-school"
-        label="Read the Expo documentation"
-        onPress={() => WebBrowser.openBrowserAsync('https://docs.expo.io')}
+        icon="md-happy"
+        label="How to stay positive"
+        onPress={() => WebBrowser.openBrowserAsync('https://theconsciouslife.com/stay-positive-tough-times.htm')}
       />
 
       <OptionButton
-        icon="md-compass"
-        label="Read the React Navigation documentation"
-        onPress={() => WebBrowser.openBrowserAsync('https://reactnavigation.org')}
+        icon="md-headset"
+        label="Songs to Chill out to"
+        onPress={() => WebBrowser.openBrowserAsync('https://www.vogue.com/article/best-songs-to-chill-out-to-ambient-music-playlist')}
       />
 
       <OptionButton
-        icon="ios-chatboxes"
-        label="Ask a question on the forums"
-        onPress={() => WebBrowser.openBrowserAsync('https://forums.expo.io')}
+        icon="ios-document"
+        label="Articles to Busy"
+        onPress={() => WebBrowser.openBrowserAsync('https://www.hellomagazine.com/healthandbeauty/health-and-fitness/2020031686372/things-to-do-if-self-isolating-at-home/')}
         isLastOption
       />
        <OptionButton
-        icon="md-school"
-        label="Read the Expo documentation"
-        onPress={() => WebBrowser.openBrowserAsync('https://docs.expo.io')}
+        icon="md-fitness"
+        label="Ways to stay healthy"
+        onPress={() => WebBrowser.openBrowserAsync('https://www.active.com/fitness/articles/5-simple-tips-for-fitness-success')}
       />
 
       <OptionButton
         icon="md-compass"
-        label="Read the React Navigation documentation"
-        onPress={() => WebBrowser.openBrowserAsync('https://reactnavigation.org')}
+        label="Dream places to go"
+        onPress={() => WebBrowser.openBrowserAsync('https://roarloud.net/2016/12/19/dream-destinations-around-the-world/')}
       />
 
       <OptionButton
-        icon="ios-chatboxes"
-        label="Ask a question on the forums"
-        onPress={() => WebBrowser.openBrowserAsync('https://forums.expo.io')}
+        icon="md-egg"
+        label="Diets to follow"
+        onPress={() => WebBrowser.openBrowserAsync('https://upfitness.com/fat-loss/losing-fat/8-steps-get-shredded-summer/')}
         isLastOption
       />
-       <OptionButton
+     
+
+      <OptionButton
         icon="md-school"
-        label="Read the Expo documentation"
-        onPress={() => WebBrowser.openBrowserAsync('https://docs.expo.io')}
+        label="Facts to learn"
+        onPress={() => WebBrowser.openBrowserAsync('https://bestlifeonline.com/world-facts/')}
       />
 
-      <OptionButton
-        icon="md-compass"
-        label="Read the React Navigation documentation"
-        onPress={() => WebBrowser.openBrowserAsync('https://reactnavigation.org')}
-      />
-
-      <OptionButton
-        icon="ios-chatboxes"
-        label="Ask a question on the forums"
-        onPress={() => WebBrowser.openBrowserAsync('https://forums.expo.io')}
-        isLastOption
-      />
-       <OptionButton
-        icon="md-school"
-        label="Read the Expo documentation"
-        onPress={() => WebBrowser.openBrowserAsync('https://docs.expo.io')}
-      />
-
-      <OptionButton
-        icon="md-compass"
-        label="Read the React Navigation documentation"
-        onPress={() => WebBrowser.openBrowserAsync('https://reactnavigation.org')}
-      />
-
-      <OptionButton
-        icon="ios-chatboxes"
-        label="Ask a question on the forums"
-        onPress={() => WebBrowser.openBrowserAsync('https://forums.expo.io')}
-        isLastOption
-      />
+   
     </ScrollView>
   );
 }
