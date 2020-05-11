@@ -16,7 +16,7 @@ export default class Timeline extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <DatePickerIOS date={this.state.chosenDate} onDateChange={this.setDate} />
+        <DatePickerIOS date={this.state.chosenDate} onDateChange={this.setDate} /> 
       </View>
     );
   }

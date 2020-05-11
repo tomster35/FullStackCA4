@@ -23,7 +23,7 @@ export default class Footer extends React.Component {
 
                     <TextInput 
                         style={styles.textInput}
-                        placeholder={'What did you learn today?'}
+                        placeholder={'What did you do today?'}
                         placeholderTextColor={'rgba(255, 255, 255, .7)'}
                         onChangeText={ (val) => this.props.onChangeText(val) }
                         value={this.props.inputValue}
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         width: '100%',
         height: 155,
-        bottom: -30,
+        bottom: -39,
     },
     footerInner: {
         position: 'relative',
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'black'
     },
     btnText: {
-        color: '#f2f0f5',
+        color: '#b9c5c9',
         fontSize: 40,
     },
     textInput: {
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 20,
         fontSize: 16,
-        color: '#fff',
+        color: '#b9c5c9',
         backgroundColor: '#262526'
     }
 });
