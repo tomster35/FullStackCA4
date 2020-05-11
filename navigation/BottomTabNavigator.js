@@ -78,13 +78,13 @@ export default function BottomTabNavigator({ navigation, route}) {
     case 'Home':
       return 'Welcome to my App';
     case 'Links':
-      return 'Diary App';
+      return 'Diary';
       case 'Info':
         return 'Information Links';
         case 'Image':
         return 'Images';
         case 'Timeline':
-        return 'Calendar';
+        return 'Time';
    
      
   }
