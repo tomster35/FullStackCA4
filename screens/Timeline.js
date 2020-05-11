@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { View, Text, Button, Platform } from 'react-native';
 import * as Calendar from 'expo-calendar';
 
-export default function Timeline() {
+export default function App() {
   useEffect(() => {
     (async () => {
       const { status } = await Calendar.requestCalendarPermissionsAsync();
@@ -18,7 +18,7 @@ export default function Timeline() {
     <View
       style={{
         flex: 1,
-        backgroundColor: '#b9c5c9',
+        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'space-around',
       }}>
