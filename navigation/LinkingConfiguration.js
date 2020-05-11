@@ -10,7 +10,7 @@ export default {
         Links: 'links',
         Info: 'Information',
         Image: 'Image',
-        Calender: 'Calender',
+     
       },
     },
   },
