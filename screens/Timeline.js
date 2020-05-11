@@ -20,7 +20,7 @@ export default class Timeline extends Component {
       </View>
     );
   }
-} 
+}
 
 
 const styles = StyleSheet.create({
