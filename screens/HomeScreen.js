@@ -7,17 +7,18 @@ import { Image, Platform, StyleSheet,  View } from 'react-native';
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-   
+         
         <View style={styles.welcomeContainer}>
           <Image
             source={
               __DEV__
-                ? require('../assets/images/wallpaper.jpg')
-                : require('../assets/images/wallpaper.jpg')
+                ? require('../assets/images/appleicon.png')
+                : require('../assets/images/appleicon.png')
             }
             style={styles.welcomeImage}
+          
           />
-
+       
         </View>
 
     
@@ -47,11 +48,11 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   welcomeImage: {
-    width:1000,
-    height: 740,
+    width:700,
+    height: 940,
     resizeMode: 'contain',
-    marginTop: -100,
-    marginLeft: -10,
+    marginTop: -180,
+    marginLeft: 10,
   },
   getStartedContainer: {
     alignItems: 'center',
