@@ -12,20 +12,18 @@ export default function HomeScreen() {
           <Image
             source={
               __DEV__
-                ? require('../assets/images/download.png')
-                : require('../assets/images/robot-prod.png')
+                ? require('../assets/images/wallpaper.jpg')
+                : require('../assets/images/wallpaper.jpg')
             }
             style={styles.welcomeImage}
           />
 
         </View>
 
-       
       </ScrollView>
       </View>
-     
-   
-  );
+
+     );
 }
 
 HomeScreen.navigationOptions = {
@@ -49,8 +47,8 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   welcomeImage: {
-    width: 100,
-    height: 850,
+    width:1000,
+    height: 670,
     resizeMode: 'contain',
     marginTop: -100,
     marginLeft: -10,
@@ -98,6 +96,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
  
-  
-  
-});
+  }
+
+);
