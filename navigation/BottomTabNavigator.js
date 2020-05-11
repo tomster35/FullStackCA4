@@ -27,8 +27,8 @@ export default function BottomTabNavigator({ navigation, route}) {
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
          
         }}
-      />
       
+      />
        <BottomTab.Screen
            name="Links"
         component={LinksScreen}
@@ -37,11 +37,20 @@ export default function BottomTabNavigator({ navigation, route}) {
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-book" />,
         }}
       />
+       <BottomTab.Screen
+           name="Info"
+        component={LinksScreen}
+        options={{
+          title: 'Informartion',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-cow" />,
+        }}
+      />
       </BottomTab.Navigator>
     
   );
 }
       
+
   function getHeaderTitle(route) {
   const routeName = route.state?.routes[route.state.index]?.name ?? INITIAL_ROUTE_NAME;
 
@@ -50,10 +59,11 @@ export default function BottomTabNavigator({ navigation, route}) {
       return 'Welcome to my App';
     case 'Links':
       return 'Diary App';
+      case 'Info':
+        return 'Information Links';
      
   }
 }
+    
  
-       
-      
 
