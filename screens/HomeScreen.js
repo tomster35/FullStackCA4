@@ -8,14 +8,14 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
          
-        <View style={styles.welcomeContainer}>
-          <Image
-            source={
-              __DEV__
-                ? require('../assets/images/appleicon.png')
+     <View style={styles.welcomeContainer}>
+       <Image
+        source={
+          __DEV__
+           ? require('../assets/images/appleicon.png')
                 : require('../assets/images/appleicon.png')
             }
-            style={styles.welcomeImage}
+           style={styles.welcomeImage}
           
           />
        
@@ -54,49 +54,5 @@ const styles = StyleSheet.create({
     marginTop: -180,
     marginLeft: 10,
   },
-  getStartedContainer: {
-    alignItems: 'center',
-    marginHorizontal: 50,
-  },
-  homeScreenFilename: {
-    marginVertical: 7,
-  },
-  codeHighlightText: {
-    color: 'rgba(96,100,109, 0.8)',
-  },
-  codeHighlightContainer: {
-    backgroundColor: 'rgba(0,0,0,0.05)',
-    borderRadius: 3,
-    paddingHorizontal: 4,
-  },
-  
-  tabBarInfoContainer: {
-    position: 'absolute',
-    color: 'blue',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    ...Platform.select({
-      ios: {
-        shadowColor: 'black',
-        shadowOffset: { width: 0, height: -3},
-        shadowOpacity: 0.1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 20,
-      },
-    }),
-    alignItems: 'center',
-    backgroundColor: '#fbfbfb',
-    paddingVertical: 20,
-  },
-  tabBarInfoText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    textAlign: 'center',
-  },
- 
   }
-
 );

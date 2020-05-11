@@ -39,14 +39,7 @@ export default function BottomTabNavigator({ navigation, route}) {
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-book" />,
         }}
       />
-       <BottomTab.Screen
-           name="Info"
-        component={Information}
-        options={{
-          title: 'Informartion',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-eye"  />,
-        }}
-      /> 
+      
         <BottomTab.Screen
            name="Image"
         component={Picture}
@@ -55,7 +48,14 @@ export default function BottomTabNavigator({ navigation, route}) {
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-image" />,
         }}
       />
-      
+       <BottomTab.Screen
+           name="Info"
+        component={Information}
+        options={{
+          title: 'Informartion',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-eye"  />,
+        }}
+      /> 
       </BottomTab.Navigator>
     
   );
