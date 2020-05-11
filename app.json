@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "FinalCA4",
+    "name": "FinalCA4 - Mobile App",
     "slug": "FinalCA4",
     "platforms": [
       "ios",
@@ -24,6 +24,7 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "Final Full Stack CA4 Mobile App Development by Tomi Akingba"
   }
 }
