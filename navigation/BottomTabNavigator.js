@@ -25,7 +25,7 @@ export default function BottomTabNavigator({ navigation, route}) {
         options={{
           title: 'Home',
           
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-home" />,
          
         }}
       
@@ -43,7 +43,7 @@ export default function BottomTabNavigator({ navigation, route}) {
         component={Information}
         options={{
           title: 'Informartion',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-cow" />,
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-eye" />,
         }}
       />
       </BottomTab.Navigator>

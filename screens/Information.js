@@ -1,220 +1,128 @@
-
+import { Ionicons } from '@expo/vector-icons';
+import * as WebBrowser from 'expo-web-browser';
 import * as React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { RectButton, ScrollView } from 'react-native-gesture-handler';
 
-import { StyleSheet, Text, View,ScrollView,TouchableOpacity, AsyncStorage, RefreshControlComponent} from 'react-native';
-import Config from '../components/Config';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import RefreshControl from '../components/RefreshControl';
+export default function LinksScreen() {
+  return (
+    <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+      <OptionButton
+        icon="md-school"
+        label="Read the Expo documentation"
+        onPress={() => WebBrowser.openBrowserAsync('https://docs.expo.io')}
+      />
 
-export default class Information extends React.Component {
-  
-    /**
-     * constructor
-     *
-     * @array   notes   all added notes.
-     * @string  note    the current note value.
-     */
-   
+      <OptionButton
+        icon="md-compass"
+        label="Read the React Navigation documentation"
+        onPress={() => WebBrowser.openBrowserAsync('https://reactnavigation.org')}
+      />
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            notes: [],
-            note: ''
-        }
-      
-    }
+      <OptionButton
+        icon="ios-chatboxes"
+        label="Ask a question on the forums"
+        onPress={() => WebBrowser.openBrowserAsync('https://forums.expo.io')}
+        isLastOption
+      />
+       <OptionButton
+        icon="md-school"
+        label="Read the Expo documentation"
+        onPress={() => WebBrowser.openBrowserAsync('https://docs.expo.io')}
+      />
 
-    /**
-     * componentDidMount
-     *
-     * Load notes from asyncstorage if exists
-     */
-    async componentDidMount() {
+      <OptionButton
+        icon="md-compass"
+        label="Read the React Navigation documentation"
+        onPress={() => WebBrowser.openBrowserAsync('https://reactnavigation.org')}
+      />
 
-        const notes = await AsyncStorage.getItem('notes');
-        if (notes && notes.length > 0) {
-            this.setState({
-                notes: JSON.parse(notes)
-            })
-        }
+      <OptionButton
+        icon="ios-chatboxes"
+        label="Ask a question on the forums"
+        onPress={() => WebBrowser.openBrowserAsync('https://forums.expo.io')}
+        isLastOption
+      />
+       <OptionButton
+        icon="md-school"
+        label="Read the Expo documentation"
+        onPress={() => WebBrowser.openBrowserAsync('https://docs.expo.io')}
+      />
 
-    }
+      <OptionButton
+        icon="md-compass"
+        label="Read the React Navigation documentation"
+        onPress={() => WebBrowser.openBrowserAsync('https://reactnavigation.org')}
+      />
 
-    /**
-     * updateAsyncStorage
-     *
-     * @array   notes   notes array to save in asyncstorage
-     *
-     * @return  promise
-     */
-    updateAsyncStorage(notes) {
+      <OptionButton
+        icon="ios-chatboxes"
+        label="Ask a question on the forums"
+        onPress={() => WebBrowser.openBrowserAsync('https://forums.expo.io')}
+        isLastOption
+      />
+       <OptionButton
+        icon="md-school"
+        label="Read the Expo documentation"
+        onPress={() => WebBrowser.openBrowserAsync('https://docs.expo.io')}
+      />
 
-        return new Promise( async(resolve, reject) => {
+      <OptionButton
+        icon="md-compass"
+        label="Read the React Navigation documentation"
+        onPress={() => WebBrowser.openBrowserAsync('https://reactnavigation.org')}
+      />
 
-            try {
+      <OptionButton
+        icon="ios-chatboxes"
+        label="Ask a question on the forums"
+        onPress={() => WebBrowser.openBrowserAsync('https://forums.expo.io')}
+        isLastOption
+      />
+    </ScrollView>
+  );
+}
 
-                await AsyncStorage.removeItem('notes');
-                await AsyncStorage.setItem('notes', JSON.stringify(notes));
-                return resolve(true);
-
-            } catch(e) {
-                return reject(e);
-            }
-
-        });
-
-    }
-
-    /**
-     * cloneNotes
-     *
-     * Creates a shallow copy of the state notes array
-     *
-     * @return   @array  cloned notes array
-     */
-    cloneNotes() {
-        return [...this.state.notes];
-    }
-
-    /**
-     * addNote
-     *
-     * Adds new note.
-     *
-     * @return  undefined
-     */
-    async addNote() {
-
-        if (this.state.note.length <= 0)
-            return;
-
-        try {
-
-            const notes = this.cloneNotes();
-            notes.push(this.state.note);
-
-            await this.updateAsyncStorage(notes);
-
-            this.setState({
-                notes: notes,
-                note: ''
-            });
-
-        }
-
-        catch(e) {
-
-            // notes could not be updated
-            alert(e);
-
-        }
-
-    }
-
-    /**
-     * removeNote
-     *
-     * Removes note based on array index.
-     *
-     * @return  undefined
-     */
-    async removeNote(i) {
-
-        try {
-
-            const notes = this.cloneNotes();
-            notes.splice(i, 1);
-
-            await this.updateAsyncStorage(notes);
-            this.setState({ notes: notes });
-
-        }
-
-        catch(e) {
-
-            // Note could not be deleted
-            alert(e);
-
-        }
-
-    }
-
-    /**
-     * renderNotes
-     *
-     * Renders all notes in note array in a map.
-     *
-     * @return  Mapped notes array
-     */
-    renderNotes() {
-
-        return this.state.notes.map((note, i) => {
-            return (
-                <TouchableOpacity 
-                    key={i} style={styles.note} 
-                    onPress={ () => this.removeNote(i) }
-                >
-                    <Text style={styles.noteText}>{note}</Text>
-                </TouchableOpacity>
-            );
-        });
-
-    }
-
-    render() {
-
-        return (
-
-            
-            <View style={styles.container}>
-           
-                <Header title={Config.title} />
-
-                <ScrollView style={styles.scrollView}>
-                <RefreshControl style={styles.container}/>
-             
-                {this.renderNotes()}
-                 </ScrollView>  
-               
-                <Footer
-                    onChangeText={ (note) => this.setState({note})  }
-                    inputValue={this.state.note}
-                    onNoteAdd={ () => this.addNote() }
-                />
-         
-               
-
-            </View>
-        );
-
-    }
-
+function OptionButton({ icon, label, onPress, isLastOption }) {
+  return (
+    <RectButton style={[styles.option, isLastOption && styles.lastOption]} onPress={onPress}>
+      <View style={{ flexDirection: 'row' }}>
+        <View style={styles.optionIconContainer}>
+          <Ionicons name={icon} size={22} color="rgba(0,0,0,0.35)" />
+        </View>
+        <View style={styles.optionTextContainer}>
+          <Text style={styles.optionText}>{label}</Text>
+        </View>
+      </View>
+    </RectButton>
+  );
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        position: 'relative'
-    },
-    scrollView: {
-        maxHeight: '82%',
-        marginBottom: 100,
-        backgroundColor: '#f2f0f5'
-    },
-    note: {
-        margin: 10,
-        padding: 10,
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderWidth: 2,
-        backgroundColor: 'grey',
-        borderColor: 'black',
-        borderRadius: 70,
-    },
-    noteText: {
-        fontSize: 14,
-        padding: 20,
-    }
+  container: {
+    flex: 1,
+    backgroundColor: '#fafafa',
+  },
+  contentContainer: {
+    paddingTop: 15,
+  },
+  optionIconContainer: {
+    marginRight: 12,
+  },
+  option: {
+    backgroundColor: '#fdfdfd',
+    paddingHorizontal: 15,
+    paddingVertical: 15,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderBottomWidth: 0,
+    borderColor: '#ededed',
+  },
+  lastOption: {
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  },
+  optionText: {
+    fontSize: 15,
+    alignSelf: 'flex-start',
+    marginTop: 1,
+  },
 });
